@@ -69,3 +69,65 @@ case 4:
      {
      int i;
      for(i=0;i<s;i++)
+     {
+     int i;
+     for(i=0;i<s;i++)
+     {
+     printf("\n enter data for record #%d",i+1);
+     printf("\n enter account_no:");
+     scanf("%d",&list[i].account_no);
+     fflush(stdin);
+     printf("enter name:");
+     gets(list[i].name);
+     list[i].balance=0;
+     }
+     }
+     void display(struct customer list[80],int s)
+     {
+     int i;
+     printf("\n A/c no\tname\tbalance\n");
+     for(i=0;i<s;i++)
+     {
+     printf("%d\t%s\t%d\n",list[i].account_no,list[i].name,list[i].balance);
+     }
+     }
+     int search(struct customer list[80],int s,int number)
+     {
+     int i;
+     for(i=0;i<s:i++)
+     {
+     if(list[i].account_no=number)
+     {
+     return i;
+     }
+     }
+     return-1;
+     }
+     void deposit(struct customer list [],int s,int number,int amt)
+     {
+     int i=search(list,s,number);
+     if(i==-1)
+     {
+     printf("record not found");
+     }
+     else
+     {
+     list[i].balance+=amt;
+     }
+     }
+     void withdraw(struct customer list[],int s,int number,int amt)
+     {
+     int i=search(list,s,number);
+     if(i==-1)
+     {
+     printf("record not found\n");
+     }
+     else if(list[i].balance<amt)
+     {
+     printf("insufficient balance\n");
+     }
+     else
+     {
+     list[i].balance-=amt;
+     }
+     }
